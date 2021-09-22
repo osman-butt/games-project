@@ -30,6 +30,10 @@ public class RockPaperScissors {
                 String playerTwoName = scannerString.nextLine();
 
                 String playerOneChoice = getChoice(playerOneName);
+                // Create spacing, so player 2 can't see what player 1 entered!
+                for (int i=0; i<10; i++){
+                    System.out.println(" ");
+                }
                 String playerTwoChoice = getChoice(playerTwoName);
 
                 gameResult(playerOneName,playerOneChoice,playerTwoName,playerTwoChoice);
