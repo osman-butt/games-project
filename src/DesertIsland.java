@@ -11,31 +11,36 @@ public class DesertIsland {
         // Initialize scanner object
         Scanner scannerInt = new Scanner(System.in);
 
+        // Print question
         System.out.println("Hvilke ting vil du helst have med på en øde ø?");
         for (int i = 0; i<options.length; i++){
             System.out.println(i+1+" "+options[i]);
         }
 
-        int choice = 99;
+        int choice = 99; // Initialize choice
+
+        // Whilie loop runs as long as the user doesn't cancel
         while(choice!=0){
             System.out.println("Indtast valg (vælg 0 for at afslutte): ");
 
-            choice = scannerInt.nextInt();
-            int indexChoice = choice - 1;
-            if(choice<0 | choice>options.length){
+            choice = scannerInt.nextInt(); // Read choice
+            int indexChoice = choice - 1; // Get choice 0-based index
+
+            if(choice<0 | choice>options.length){ // We can only choose between options list
                 System.out.println("Ugyldigt valg prøv igen!");
             }else if (choice==0) {
                 System.out.println("-----");
-            } else{
+            } else{ // Prints choice and adds 1 to choices array
                 System.out.println(options[indexChoice]);
                 choices[indexChoice]++;
             }
         }
+        // Prints the most popular choices
         printPopularChoices(choices,options);
     }
 
     public static void printPopularChoices(int[] choicesArray, String[] optionsArray){
-        // First we get the count of the most popular choice
+        // Get max value of choicesArray
         int maxCount = choicesArray[0]; // setting initial value
         for (int i = 1; i < choicesArray.length; i++){
             if(choicesArray[i]>maxCount){
@@ -43,8 +48,10 @@ public class DesertIsland {
             }
         }
 
-        System.out.println(Arrays.toString(choicesArray));
+        System.out.println(Arrays.toString(choicesArray)); // Print choices array
         System.out.print("Mest populære valg er ");
+
+        // Loop through entire choices list to print all popular choices
         int numberOfPopularChoices = 0;
         for (int i=0; i<choicesArray.length; i++){
             if (choicesArray[i]==maxCount){
