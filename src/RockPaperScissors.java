@@ -6,10 +6,21 @@ public class RockPaperScissors {
         // Set game mode - prompt user for game mode
         Scanner scannerInt = new Scanner(System.in);
         Scanner scannerString = new Scanner(System.in);
-        System.out.println("###################################");
-        System.out.println("Welcome to Rock Paper Scissors game");
-        System.out.println("###################################");
+        System.out.println("#############################################################");
+        System.out.println("           Welcome to the Rock Paper Scissors game           ");
+        System.out.println("#############################################################");
+        System.out.println("ROCK:              PAPER:                  SCISSORS:");
+        System.out.println("    _______            _______                 _______");
+        System.out.println("---'   ____)       ---'   ____)____        ---'   ____)____");
+        System.out.println("      (_____)                ______)                 ______)");
+        System.out.println("      (_____)                _______)             __________)");
+        System.out.println("      (____)                _______)             (____)");
+        System.out.println("---.__(___)        ---.__________)         ---.__(___)");
+        System.out.println("'''                '''                     '''");
+
+        // Set game mode
         int mode;
+        // Continue play
         String play = "y";
         while(play.equals("y")){
             System.out.println("Select 1 for single player and 2 for multiplayer:");
