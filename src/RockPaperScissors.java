@@ -9,11 +9,36 @@ public class RockPaperScissors {
         System.out.println("###################################");
         System.out.println("Welcome to Rock Paper Scissors game");
         System.out.println("###################################");
+        int mode;
+        String play = "y";
+        while(play.equals("y")){
+            System.out.println("Select 1 for single player and 2 for multiplayer:");
+            mode = scannerInt.nextInt();
+            if(mode==1){
+                final String computerName = "Computer";
+                System.out.println("Enter your name:");
+                String playerOneName = scannerString.nextLine();
 
-        String playerOneChoice = getChoice("Player1");
-        String computerChoice = getComputerChoice();
-        gameResult("Player1",playerOneChoice,"Computer",computerChoice);
+                String playerOneChoice = getChoice(playerOneName);
+                String computerChoice = getComputerChoice();
 
+                gameResult(playerOneName,playerOneChoice,computerName,computerChoice);
+            }else if(mode==2){
+                System.out.println("Player1: Enter your name:");
+                String playerOneName = scannerString.nextLine();
+                System.out.println("Player2: Enter your name:");
+                String playerTwoName = scannerString.nextLine();
+
+                String playerOneChoice = getChoice(playerOneName);
+                String playerTwoChoice = getChoice(playerTwoName);
+
+                gameResult(playerOneName,playerOneChoice,playerTwoName,playerTwoChoice);
+            }else{
+                System.out.println("Invalid mode selected!!!");
+            }
+            System.out.println("Do you want to play again? (y/n)");
+            play = scannerString.nextLine();
+        }
         System.out.println("Thanks for playing :)");
     }
 
